@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang=en>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v2.0. If a copy of the MPL was not distributed with this
+   - file, you can obtain one at https://mozilla.org/MPL/2.0/
+   -
+   - © 2021 Roy Orbison
+   -->
+	<head>
+		<meta charset=utf-8>
+		<title>Retainer options page</title>
+		<style type=text/css>
+			html {
+				height: 100%;
+			}
+			body {
+				min-height: 100%;
+				background-color: Menu;
+				color: MenuText;
+			}
+			label {
+				display: block;
+				margin: 1em;
+			}
+			@media (prefers-color-scheme: dark) {
+				body {
+					background-color: MenuText;
+					color: Menu;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<form>
+			<label><input type=checkbox id=exclude-default disabled>
+				Try to create tabs in the most recently used container if the current tab isn't in one.</label>
+		</form>
+		<script src=options.js></script>
+	</body>
+</html>

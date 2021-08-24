@@ -1,22 +1,45 @@
 {
-  "name": "New container tab",
-  "version": "0.2.0",
-  "description": "Press Alt+C to create a new container tab.",
-  "author": "Jonathan Kingston",
-  "icons": {
-    "128": "img/icon.svg"
-  },
-  "background": {
-    "scripts": ["background.js"]
-  },
-  "permissions": [
-    "cookies"
-  ],
-  "commands": {
-    "new-container-tab": {
-      "suggested_key": { "default": "Alt+C" },
-      "description": "Create a new container tab"
-    }
-  },
-  "manifest_version": 2
+	"licence": "This Source Code Form is subject to the terms of the Mozilla Public License, v2.0. If a copy of the MPL was not distributed with this file, you can obtain one at https://mozilla.org/MPL/2.0/",
+	"copyright": "© 2017 Jonathan Kingston, © 2021 Roy Orbison",
+	"manifest_version": 2,
+	"name": "Retainer",
+	"author": "Roy Orbison",
+	"version": "0.1.0",
+	"description": "Provides a keyboard shortcut (Shift + Alt + C by default) to create a new tab that retains current/last-used container.",
+	"icons": {
+		"16": "icon.svg",
+		"32": "icon.svg",
+		"48": "icon.svg",
+		"96": "icon.svg",
+		"128": "icon.svg",
+		"512": "icon.svg"
+	},
+	"homepage_url": "https://github.com/Roy-Orbison/Retainer",
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "retainer@roy-orbison.test",
+			"strict_min_version": "58.0a1"
+		}
+	},
+	"background": {
+		"scripts": [
+			"background.js"
+		]
+	},
+	"permissions": [
+		"tabs",
+		"storage",
+		"cookies"
+	],
+	"commands": {
+		"retainer-tab": {
+			"suggested_key": {
+				"default": "Shift+Alt+C"
+			},
+			"description": "New retained tab"
+		}
+	},
+	"options_ui": {
+		"page": "options.html"
+	}
 }

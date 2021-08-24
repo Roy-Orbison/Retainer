@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v2.0. If a copy of the MPL was not distributed with this
+   - file, you can obtain one at https://mozilla.org/MPL/2.0/
+   -
+   - © 2021 Roy Orbison
+   -->
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+<path fill="#59d49d" d="M 0 512 v -480 a 32 32 90 0 1 32 -32 h 224 a 32 32 90 0 1 32 32 v 64 H 512 V 512 z"/>
+<path fill="#666363" d="M 320 96 v -64 a 32 32 90 0 1 32 -32 H 512 v 96 z"/>
+</svg>
