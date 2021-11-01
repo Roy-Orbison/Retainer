@@ -31,9 +31,13 @@
 		</style>
 	</head>
 	<body>
-		<form>
-			<label><input type=checkbox id=exclude-default disabled>
-				Try to create tabs in the most recently used container if the current tab isn't in one.</label>
+		<form name=prefs>
+			<label><input type=radio name=restriction value=0 disabled>
+				Create in the same container (or not) as the current tab.</label>
+			<label><input type=radio name=restriction value=1 disabled>
+				Try to create tabs in the most recently used container, or fall back to no container.</label>
+			<label><input type=radio name=restriction value=2 disabled>
+				Never create uncontained tabs.</label>
 		</form>
 		<script src=options.js></script>
 	</body>

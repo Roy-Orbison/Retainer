@@ -89,12 +89,16 @@ browser.commands.onCommand.addListener(async function(command) {
 				currentWindow: true,
 				active: true
 			});
-			if (tabs?.length) {
+			if (tabs?.length && tabs[0].id != browser.tabs.TAB_ID_NONE) {
 				const exclKey = 'excludeDefault',
-					res = await browser.storage.sync.get(exclKey);
-				browser.tabs.create({
-					cookieStoreId: res && res[exclKey] && containers[tabs[0].windowId] || tabs[0].cookieStoreId
-				});
+					res = await browser.storage.sync.get(exclKey),
+					excl = +(res && res[exclKey] || 0),
+					mruCookieStoreId = containers[tabs[0].windowId];
+				if (excl < 2 || mruCookieStoreId) {
+					browser.tabs.create({
+						cookieStoreId: excl && mruCookieStoreId || tabs[0].cookieStoreId
+					});
+				}
 			}
 		}
 		catch (error) {

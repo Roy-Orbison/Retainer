@@ -5,23 +5,23 @@
  * © 2021 Roy Orbison
  * */
 
-const excludeCheckbox = document.querySelector('#exclude-default'),
+const excludeRadio = document.forms.prefs.elements.restriction,
 	exclKey = 'excludeDefault',
 	store = browser.storage.sync;
-excludeCheckbox.indeterminate = true;
 
 store.get(exclKey).then(res => {
-	excludeCheckbox.disabled = false;
-	excludeCheckbox.indeterminate = false;
-	excludeCheckbox.checked = !!(res && res[exclKey]);
+	excludeRadio.forEach(option => {
+		option.disabled = false;
+		option.checked = option.value == +(res && res[exclKey] || 0);
 
-	excludeCheckbox.addEventListener('change', function() {
-		excludeCheckbox.indeterminate = true;
-		const upd = {
-			[exclKey]: excludeCheckbox.checked
-		};
-		store.set(upd)
-			.finally(() => excludeCheckbox.indeterminate = false)
-			.catch(() => excludeCheckbox.checked = !upd[exclKey]);
+		option.addEventListener('change', function() {
+			if (option.checked) {
+				const upd = {
+					[exclKey]: +option.value
+				};
+				store.set(upd)
+					.catch(() => excludeRadio.checked = !upd[exclKey]);
+			}
+		});
 	});
 });
