@@ -99,6 +99,16 @@ browser.commands.onCommand.addListener(async function(command) {
 						cookieStoreId: excl && mruCookieStoreId || tabs[0].cookieStoreId
 					});
 				}
+				else {
+					browser.notifications.create(
+						'no-container',
+						{
+							type: 'basic',
+							title: 'No container',
+							message: "You must open at least one contained tab to set the window's most recently used container."
+						}
+					);
+				}
 			}
 		}
 		catch (error) {

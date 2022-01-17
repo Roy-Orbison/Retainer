@@ -4,7 +4,7 @@
 	"manifest_version": 2,
 	"name": "Retainer",
 	"author": "Roy Orbison",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "Provides a keyboard shortcut (Shift + Alt + C by default) to create a new tab that retains current/last-used container.",
 	"icons": {
 		"16": "icon.svg",
@@ -27,6 +27,7 @@
 		]
 	},
 	"permissions": [
+		"notifications",
 		"tabs",
 		"storage",
 		"cookies"
